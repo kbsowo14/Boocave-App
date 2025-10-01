@@ -14,7 +14,10 @@ export default function App() {
 				<StatusBar style="auto" />
 				<WebView
 					source={{ uri: WEBVIEW_URL }}
+					originWhitelist={['*']}
 					style={styles.webview}
+					// 커스텀 User Agent 설정
+					userAgent="Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1"
 					// 로딩 인디케이터
 					startInLoadingState={true}
 					renderLoading={() => (
@@ -29,6 +32,13 @@ export default function App() {
 					// 미디어 재생 허용
 					allowsInlineMediaPlayback={true}
 					mediaPlaybackRequiresUserAction={false}
+					allowsBackForwardNavigationGestures
+					thirdPartyCookiesEnabled={true}
+					javaScriptCanOpenWindowsAutomatically={true}
+					decelerationRate={0.998}
+					showsVerticalScrollIndicator={false}
+					showsHorizontalScrollIndicator={false}
+					setSupportMultipleWindows={false}
 					// 에러 처리
 					onError={syntheticEvent => {
 						const { nativeEvent } = syntheticEvent
