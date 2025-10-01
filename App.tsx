@@ -6,10 +6,7 @@ import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
 export default function App() {
 	// 개발 환경: localhost 또는 로컬 네트워크 IP
 	// 프로덕션 환경: 배포된 Boocave-Web URL
-	// const WEBVIEW_URL = __DEV__
-	//   ? 'http://localhost:3000'  // Next.js 개발 서버 기본 포트
-	//   : 'https://your-production-url.com';  // 나중에 실제 배포 URL로 변경
-	const WEBVIEW_URL = 'https://naver.com'
+	const WEBVIEW_URL = 'http://localhost:3000'
 
 	return (
 		<SafeAreaProvider>
