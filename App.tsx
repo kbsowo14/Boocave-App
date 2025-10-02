@@ -31,6 +31,7 @@ export default function App() {
 					javaScriptEnabled={true}
 					// DOM Storage 활성화 (로컬스토리지 사용 가능)
 					domStorageEnabled={true}
+					bounces={false}
 					// 미디어 재생 허용
 					allowsInlineMediaPlayback={true}
 					mediaPlaybackRequiresUserAction={false}
@@ -41,6 +42,9 @@ export default function App() {
 					showsVerticalScrollIndicator={false}
 					showsHorizontalScrollIndicator={false}
 					setSupportMultipleWindows={false}
+					scalesPageToFit={false}
+					mixedContentMode="compatibility"
+					pinchGestureEnabled={false}
 					// 에러 처리
 					onError={syntheticEvent => {
 						const { nativeEvent } = syntheticEvent
