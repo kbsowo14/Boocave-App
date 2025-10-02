@@ -24,7 +24,7 @@ export default function App() {
 					startInLoadingState={true}
 					renderLoading={() => (
 						<View style={styles.loadingContainer}>
-							<ActivityIndicator size="large" color="#0000ff" />
+							<ActivityIndicator size="small" color="#51CD42" />
 						</View>
 					)}
 					// JavaScript 활성화
