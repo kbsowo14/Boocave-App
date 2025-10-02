@@ -3,6 +3,8 @@ import { StyleSheet, View, ActivityIndicator } from 'react-native'
 import { WebView } from 'react-native-webview'
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
 
+const BG_COLOR = '#171717'
+
 export default function App() {
 	// 개발 환경: localhost 또는 로컬 네트워크 IP
 	// 프로덕션 환경: 배포된 Boocave-Web URL
@@ -11,7 +13,7 @@ export default function App() {
 	return (
 		<SafeAreaProvider>
 			<SafeAreaView style={styles.container}>
-				<StatusBar style="auto" />
+				<StatusBar style="light" backgroundColor={BG_COLOR} />
 				<WebView
 					source={{ uri: WEBVIEW_URL }}
 					originWhitelist={['*']}
@@ -57,7 +59,7 @@ export default function App() {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: '#fff',
+		backgroundColor: BG_COLOR,
 	},
 	webview: {
 		flex: 1,
@@ -70,6 +72,6 @@ const styles = StyleSheet.create({
 		bottom: 0,
 		justifyContent: 'center',
 		alignItems: 'center',
-		backgroundColor: '#fff',
+		backgroundColor: BG_COLOR,
 	},
 })
