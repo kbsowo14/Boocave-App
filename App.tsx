@@ -2,40 +2,32 @@ import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, View, ActivityIndicator } from 'react-native'
 import { WebView } from 'react-native-webview'
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
-import { useRef, useEffect } from 'react'
+import { useRef } from 'react'
 import { Dimensions } from 'react-native'
 
 const BG_COLOR = '#171717'
 
 export default function App() {
+	const { width: deviceWidth, height: deviceHeight } = Dimensions.get('window')
+
 	// 개발 환경: localhost 또는 로컬 네트워크 IP
 	// 프로덕션 환경: 배포된 Boocave-Web URL
 	const WEBVIEW_URL = 'http://localhost:3000'
 
 	const webViewRef = useRef<WebView>(null)
 
-	useEffect(() => {
-		const sendDimensions = () => {
-			const { width, height } = Dimensions.get('window')
+	const sendDimensions = () => {
+		try {
 			const message = JSON.stringify({
 				type: 'DEVICE_DIMENSIONS',
-				windowWidth: width,
-				windowHeight: height,
+				windowWidth: deviceWidth,
+				windowHeight: deviceHeight,
 			})
-
 			webViewRef.current?.postMessage(message)
+		} catch (error) {
+			console.error('🔥 Error sending dimensions:', error)
 		}
-
-		// 최초 렌더 시 전송
-		sendDimensions()
-
-		// 화면 크기 변경 시 전송
-		const subscription = Dimensions.addEventListener('change', sendDimensions)
-
-		return () => {
-			subscription?.remove?.()
-		}
-	}, [])
+	}
 
 	return (
 		<SafeAreaProvider>
@@ -72,14 +64,36 @@ export default function App() {
 					setSupportMultipleWindows={false}
 					scalesPageToFit={false}
 					mixedContentMode="compatibility"
+					onMessage={event => {
+						try {
+							const data = JSON.parse(event?.nativeEvent?.data)
+							if (data?.type === 'LOG') {
+								const level = data.data?.level
+								const message = data.data?.message
+								switch (level) {
+									case 'warn':
+										console.warn(message)
+										break
+									case 'error':
+										console.error(message)
+										break
+									default:
+										console.log(message)
+								}
+							}
+						} catch (e) {
+							console.warn('WebView message error: ', String(e))
+						}
+					}}
 					// 에러 처리
 					onError={syntheticEvent => {
-						const { nativeEvent } = syntheticEvent
+						const { nativeEvent } = syntheticEvent || {}
 						console.warn('WebView error: ', nativeEvent)
 					}}
 					// 로드 완료 확인
 					onLoadEnd={() => {
-						console.log('WebView loaded successfully')
+						// 로드 완료 시 디바이스 크기 전송
+						sendDimensions()
 					}}
 					webviewDebuggingEnabled={true}
 				/>
