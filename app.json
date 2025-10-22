@@ -1,47 +1,47 @@
 {
-  "expo": {
-    "name": "Boocave",
-    "slug": "Boocave-App",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "newArchEnabled": true,
-    "splash": {
-      "image": "./assets/splash-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.kbsowo14.BoocaveApp",
-      "infoPlist": {
-        "ITSAppUsesNonExemptEncryption": false
-      }
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false,
-      "package": "com.kbsowo14.BoocaveApp"
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "174adff7-9d25-49f5-a5d2-0bed8b1b24a3"
-      }
-    },
-    "owner": "kbsowo14",
-    "runtimeVersion": {
-      "policy": "appVersion"
-    },
-    "updates": {
-      "url": "https://u.expo.dev/174adff7-9d25-49f5-a5d2-0bed8b1b24a3"
-    }
-  }
+	"expo": {
+		"name": "Boocave",
+		"slug": "Boocave-App",
+		"version": "1.0.0",
+		"orientation": "portrait",
+		"icon": "./assets/app_icon.png",
+		"userInterfaceStyle": "light",
+		"newArchEnabled": true,
+		"splash": {
+			"image": "./assets/app_splash.png",
+			"resizeMode": "contain",
+			"backgroundColor": "#ffffff"
+		},
+		"ios": {
+			"supportsTablet": true,
+			"bundleIdentifier": "com.kbsowo14.BoocaveApp",
+			"infoPlist": {
+				"ITSAppUsesNonExemptEncryption": false
+			}
+		},
+		"android": {
+			"adaptiveIcon": {
+				"foregroundImage": "./assets/app_splash.png",
+				"backgroundColor": "#ffffff"
+			},
+			"edgeToEdgeEnabled": true,
+			"predictiveBackGestureEnabled": false,
+			"package": "com.kbsowo14.BoocaveApp"
+		},
+		"web": {
+			"favicon": "./assets/favicon.png"
+		},
+		"extra": {
+			"eas": {
+				"projectId": "174adff7-9d25-49f5-a5d2-0bed8b1b24a3"
+			}
+		},
+		"owner": "kbsowo14",
+		"runtimeVersion": {
+			"policy": "appVersion"
+		},
+		"updates": {
+			"url": "https://u.expo.dev/174adff7-9d25-49f5-a5d2-0bed8b1b24a3"
+		}
+	}
 }
