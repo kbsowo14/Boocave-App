@@ -13,6 +13,7 @@
 			"backgroundColor": "#000000"
 		},
 		"ios": {
+			"buildNumber": "1",
 			"supportsTablet": true,
 			"bundleIdentifier": "com.kbsowo14.BoocaveApp",
 			"infoPlist": {
