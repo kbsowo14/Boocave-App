@@ -12,8 +12,10 @@ export default function App() {
 
 	// 개발 환경: localhost 또는 로컬 네트워크 IP
 	// 프로덕션 환경: 배포된 Boocave-Web URL
-	const WEBVIEW_URL = 'http://localhost:3000'
-	// const WEBVIEW_URL = 'https://boocave-web.vercel.app/search'
+	const APP_ENV = process?.env?.APP_ENV || 'production'
+
+	const WEBVIEW_URL =
+		APP_ENV === 'stage' ? 'http://localhost:3000' : 'https://boocave-web.vercel.app/'
 
 	const webViewRef = useRef<WebView>(null)
 

@@ -1,6 +1,6 @@
 {
 	"build": {
-		"production-client": {
+		"stage-client": {
 			"channel": "production-client",
 			"distribution": "internal",
 			"developmentClient": true,
@@ -10,19 +10,38 @@
 			},
 			"ios": {
 				"simulator": true
+			},
+			"env": {
+				"APP_ENV": "stage"
 			}
 		},
-		"production-client-device": {
+		"stage-client-device": {
 			"channel": "production-client",
 			"distribution": "internal",
-			"developmentClient": true
+			"developmentClient": true,
+			"env": {
+				"APP_ENV": "stage"
+			}
 		},
-
+		"stage": {
+			"channel": "stage",
+			"distribution": "internal",
+			"android": {
+				"buildType": "apk",
+				"image": "latest"
+			},
+			"env": {
+				"APP_ENV": "stage"
+			}
+		},
 		"production-apk": {
 			"channel": "production",
 			"android": {
 				"buildType": "apk",
 				"image": "latest"
+			},
+			"env": {
+				"APP_ENV": "production"
 			}
 		},
 		"production": {
@@ -30,6 +49,9 @@
 			"distribution": "store",
 			"android": {
 				"image": "latest"
+			},
+			"env": {
+				"APP_ENV": "production"
 			}
 		}
 	}
