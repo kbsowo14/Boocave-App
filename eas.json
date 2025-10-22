@@ -1,0 +1,36 @@
+{
+	"build": {
+		"production-client": {
+			"channel": "production-client",
+			"distribution": "internal",
+			"developmentClient": true,
+			"android": {
+				"buildType": "apk",
+				"image": "latest"
+			},
+			"ios": {
+				"simulator": true
+			}
+		},
+		"production-client-device": {
+			"channel": "production-client",
+			"distribution": "internal",
+			"developmentClient": true
+		},
+
+		"production-apk": {
+			"channel": "production",
+			"android": {
+				"buildType": "apk",
+				"image": "latest"
+			}
+		},
+		"production": {
+			"channel": "production",
+			"distribution": "store",
+			"android": {
+				"image": "latest"
+			}
+		}
+	}
+}
