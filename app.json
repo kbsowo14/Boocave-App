@@ -2,7 +2,7 @@
 	"expo": {
 		"name": "Boocave",
 		"slug": "Boocave-App",
-		"version": "1.0.0",
+		"version": "1.0.1",
 		"orientation": "portrait",
 		"icon": "./assets/app_icon.png",
 		"userInterfaceStyle": "light",
@@ -21,7 +21,7 @@
 			}
 		},
 		"android": {
-			"versionCode": 1000001,
+			"versionCode": 1000002,
 			"adaptiveIcon": {
 				"foregroundImage": "./assets/app_splash.png",
 				"backgroundColor": "#000000"
